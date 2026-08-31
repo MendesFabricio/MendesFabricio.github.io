@@ -1,0 +1,287 @@
+@import url("portfolio-blue-v2.css?v=20260831-flowbase");
+
+/* Fluxo visual contínuo entre as seções */
+html {
+  scroll-padding-top: 82px;
+}
+
+body {
+  overflow-x: hidden;
+  background: #070711;
+}
+
+main {
+  position: relative;
+  isolation: isolate;
+  background:
+    radial-gradient(ellipse at 86% 19%, rgba(63, 91, 220, 0.12), transparent 31%),
+    radial-gradient(ellipse at 12% 36%, rgba(126, 77, 255, 0.10), transparent 29%),
+    radial-gradient(ellipse at 83% 57%, rgba(56, 116, 255, 0.09), transparent 31%),
+    radial-gradient(ellipse at 18% 77%, rgba(132, 77, 255, 0.08), transparent 31%),
+    linear-gradient(180deg, #070711 0%, #0a0d20 27%, #090d1e 56%, #080b19 78%, #070914 100%);
+}
+
+main::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    linear-gradient(rgba(116, 127, 191, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(116, 127, 191, 0.025) 1px, transparent 1px);
+  background-size: 88px 88px;
+  mask-image: linear-gradient(to bottom, transparent 0%, black 10%, black 88%, transparent 100%);
+}
+
+.section,
+.section-dark,
+.section-gradient {
+  position: relative;
+  background: transparent !important;
+  border-top: 0 !important;
+}
+
+.section {
+  padding: clamp(102px, 8.5vw, 136px) 0;
+  scroll-margin-top: 72px;
+}
+
+.section > .container {
+  position: relative;
+  z-index: 2;
+}
+
+/* Faz o roxo do hero dissolver na próxima seção em vez de cortar */
+#sobre {
+  margin-top: -1px;
+  padding-top: clamp(120px, 10vw, 154px);
+}
+
+#sobre::before {
+  content: "";
+  position: absolute;
+  top: -235px;
+  left: 0;
+  right: 0;
+  height: 470px;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgba(44, 23, 96, 0.96) 0%,
+    rgba(28, 24, 78, 0.68) 26%,
+    rgba(14, 16, 43, 0.30) 58%,
+    transparent 100%
+  );
+}
+
+/* Luzes muito suaves costurando as seções */
+#projetos::before,
+#experiencia::before,
+#tecnologias::before,
+#contato::before {
+  content: "";
+  position: absolute;
+  width: min(720px, 70vw);
+  height: min(720px, 70vw);
+  border-radius: 50%;
+  filter: blur(105px);
+  opacity: 0.16;
+  pointer-events: none;
+  z-index: 0;
+}
+
+#projetos::before {
+  right: -340px;
+  top: -150px;
+  background: #416bff;
+}
+
+#experiencia::before {
+  left: -380px;
+  top: 5%;
+  background: #754dff;
+  opacity: 0.12;
+}
+
+#tecnologias::before {
+  right: -380px;
+  top: 0;
+  background: #3e83ff;
+  opacity: 0.12;
+}
+
+#contato::before {
+  left: 15%;
+  bottom: -420px;
+  background: #734cff;
+  opacity: 0.14;
+}
+
+/* Ritmo consistente */
+.section-heading {
+  margin-top: 18px;
+  margin-bottom: 54px;
+}
+
+.section-heading h2 {
+  max-width: 690px;
+}
+
+.section-heading p {
+  max-width: 560px;
+}
+
+.about-grid,
+.projects-grid,
+.experience-grid {
+  gap: 20px;
+}
+
+/* Cards menos “caixas isoladas” e mais integrados ao fundo */
+.info-card,
+.project-card,
+.experience-grid > div {
+  background:
+    linear-gradient(180deg, rgba(20, 26, 60, 0.60), rgba(10, 14, 33, 0.52));
+  border-color: rgba(151, 164, 225, 0.11);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.018);
+  backdrop-filter: blur(8px);
+}
+
+.info-card:hover,
+.project-card:hover,
+.experience-grid > div:hover {
+  border-color: rgba(118, 139, 255, 0.34);
+  box-shadow:
+    0 18px 45px rgba(35, 49, 135, 0.13),
+    inset 0 1px 0 rgba(255,255,255,0.03);
+}
+
+.experience-card {
+  background:
+    radial-gradient(circle at 88% 12%, rgba(92, 106, 255, 0.10), transparent 31%),
+    linear-gradient(180deg, rgba(15, 21, 50, 0.72), rgba(9, 13, 31, 0.64));
+  border-color: rgba(153, 165, 224, 0.13);
+  backdrop-filter: blur(10px);
+}
+
+.contact-box {
+  background:
+    radial-gradient(circle at 88% 15%, rgba(83, 111, 255, 0.13), transparent 35%),
+    radial-gradient(circle at 8% 100%, rgba(135, 78, 255, 0.10), transparent 42%),
+    rgba(11, 15, 39, 0.64);
+  backdrop-filter: blur(10px);
+  border-color: rgba(153, 165, 224, 0.14);
+}
+
+.tags span,
+.project-tags span {
+  background: rgba(82, 102, 255, 0.035);
+}
+
+.footer {
+  background: #070914;
+  border-top-color: rgba(255,255,255,0.035);
+}
+
+/* Header ganha peso aos poucos durante o scroll */
+.header {
+  transition: background 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+.header.scrolled {
+  background: rgba(6, 7, 18, 0.88);
+  border-bottom-color: rgba(142, 153, 211, 0.09);
+  box-shadow: 0 10px 35px rgba(0,0,0,0.15);
+}
+
+.nav-links a {
+  position: relative;
+}
+
+.nav-links a:not(.nav-contact)::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 100%;
+  bottom: -8px;
+  height: 1px;
+  background: linear-gradient(90deg, #6d87ff, #8c60ff);
+  transition: right 0.28s ease;
+}
+
+.nav-links a.active:not(.nav-contact) {
+  color: #fff;
+}
+
+.nav-links a.active:not(.nav-contact)::after {
+  right: 0;
+}
+
+/* Entrada suave dos conteúdos — sem efeito exagerado */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  filter: blur(3px);
+  transition:
+    opacity 0.72s cubic-bezier(.22, 1, .36, 1),
+    transform 0.72s cubic-bezier(.22, 1, .36, 1),
+    filter 0.72s ease;
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+
+/* O hero já aparece como uma composição única */
+.hero-kicker,
+.hero h1,
+.hero-role,
+.hero-text,
+.hero-actions,
+.hero-stats {
+  animation: heroEnter 0.85s cubic-bezier(.22, 1, .36, 1) both;
+}
+
+.hero h1 { animation-delay: 70ms; }
+.hero-role { animation-delay: 130ms; }
+.hero-text { animation-delay: 190ms; }
+.hero-actions { animation-delay: 250ms; }
+.hero-stats { animation-delay: 320ms; }
+
+@keyframes heroEnter {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 900px) {
+  html { scroll-padding-top: 72px; }
+  .section { padding: 92px 0; }
+  #sobre { padding-top: 112px; }
+  #sobre::before { top: -175px; height: 360px; }
+  main::before { background-size: 64px 64px; }
+}
+
+@media (max-width: 560px) {
+  .section { padding: 78px 0; }
+  #sobre { padding-top: 94px; }
+  .section-heading { margin-bottom: 36px; }
+  .about-grid,
+  .projects-grid,
+  .experience-grid { gap: 14px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .reveal { opacity: 1; transform: none; filter: none; }
+}

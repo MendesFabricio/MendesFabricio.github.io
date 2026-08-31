@@ -3,218 +3,240 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Portfólio de Fabrício Mendes — Análise de Dados, Power BI, Python e automação de processos com Power Platform." />
-  <meta name="theme-color" content="#0a0d12" />
+  <meta name="description" content="Portfólio de Fabrício Mendes — Análise de Dados, Power BI, Python e Automações." />
   <title>Fabrício Mendes | Dados & Automações</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="page-glow page-glow-one"></div>
-  <div class="page-glow page-glow-two"></div>
-
   <header class="header">
     <div class="container nav">
-      <a class="logo" href="#inicio" aria-label="Início">FM<span>/</span></a>
+      <a href="#inicio" class="logo">FM<span>.</span></a>
+
       <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
-      <nav class="nav-links" aria-label="Navegação principal">
+
+      <nav class="nav-links">
+        <a href="#inicio">Início</a>
         <a href="#sobre">Sobre</a>
-        <a href="#competencias">Competências</a>
         <a href="#experiencia">Experiência</a>
+        <a href="#tecnologias">Tecnologias</a>
         <a href="#projetos">Projetos</a>
-        <a href="#formacao">Formação</a>
-        <a class="nav-cta" href="#contato">Contato</a>
+        <a href="#contato">Contato</a>
       </nav>
     </div>
   </header>
 
   <main>
-    <section id="inicio" class="hero">
-      <div class="container hero-layout reveal">
-        <div class="hero-copy">
-          <div class="status-pill"><span></span> Análise de Dados & Automações</div>
-          <p class="eyebrow">Fabrício de Araújo Mendes</p>
-          <h1>Dados que explicam.<br /><span>Automações que simplificam.</span></h1>
-          <p class="hero-text">
-            Transformo dados e processos em soluções práticas por meio de
-            <strong>Power BI, Python, SQL e Microsoft Power Platform</strong>,
-            com foco em eficiência, padronização e tomada de decisão.
-          </p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#projetos">Explorar projetos <span>↗</span></a>
-            <a class="btn btn-ghost" href="https://github.com/MendesFabricio" target="_blank" rel="noopener noreferrer">GitHub</a>
-          </div>
-        </div>
-
-        <aside class="hero-panel" aria-label="Resumo profissional">
-          <p class="panel-label">FOCO ATUAL</p>
-          <div class="focus-list">
-            <div><span>01</span><p>Business Intelligence <small>Dashboards, KPIs e modelagem de dados</small></p></div>
-            <div><span>02</span><p>Automação de Processos <small>Python, Power Automate e Power Apps</small></p></div>
-            <div><span>03</span><p>Melhoria Contínua <small>Processos, confiabilidade e eficiência operacional</small></p></div>
-          </div>
-          <div class="panel-footer"><span>São Paulo, SP</span><span>Disponível para conexões</span></div>
-        </aside>
-      </div>
-    </section>
-
-    <section id="sobre" class="section">
-      <div class="container split reveal">
+    <section id="inicio" class="hero section">
+      <div class="container hero-grid">
         <div>
-          <p class="section-kicker">01 — SOBRE</p>
-          <h2>Perfil orientado a dados, processos e resultado.</h2>
+          <p class="eyebrow">Olá, eu sou</p>
+          <h1>Fabrício Mendes</h1>
+          <h2>Análise de Dados <span>•</span> Automações <span>•</span> Processos</h2>
+
+          <p class="hero-text">
+            Transformo dados e rotinas em soluções mais claras, eficientes e escaláveis usando
+            Power BI, Python, SQL e Microsoft Power Platform.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#projetos">Ver projetos</a>
+            <a class="btn btn-secondary" href="https://github.com/MendesFabricio" target="_blank" rel="noopener noreferrer">GitHub</a>
+          </div>
+
+          <div class="hero-stats">
+            <div><strong>BI</strong><span>Dashboards & KPIs</span></div>
+            <div><strong>RPA</strong><span>Automação de rotinas</span></div>
+            <div><strong>PMO</strong><span>Processos & entregas</span></div>
+          </div>
         </div>
-        <div class="about-copy">
-          <p>
-            Minha experiência combina análise de dados, automação de rotinas e suporte a projetos.
-            Atuei em Supply Chain & PMO desenvolvendo dashboards em Power BI, soluções em Power Apps
-            e Power Automate, auditoria de automações e iniciativas de melhoria contínua.
-          </p>
-          <p>
-            Atualmente curso Engenharia de Instrumentação e Robótica e Bacharelado em Ciência e Tecnologia
-            na UFABC, construindo uma base multidisciplinar para transformar necessidades de negócio em soluções técnicas.
-          </p>
+
+        <div class="hero-card">
+          <div class="terminal-top"><span></span><span></span><span></span></div>
+          <div class="terminal-body">
+            <p><span class="code-blue">const</span> foco = {</p>
+            <p>&nbsp;&nbsp;dados: <span class="code-green">"transformar em decisão"</span>,</p>
+            <p>&nbsp;&nbsp;processos: <span class="code-green">"automatizar e simplificar"</span>,</p>
+            <p>&nbsp;&nbsp;resultado: <span class="code-green">"mais eficiência"</span></p>
+            <p>};</p>
+            <p class="terminal-cursor">&gt; construindo soluções úteis_</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="competencias" class="section section-muted">
-      <div class="container reveal">
-        <div class="section-head">
-          <div><p class="section-kicker">02 — COMPETÊNCIAS</p><h2>Stack focada no que gera impacto.</h2></div>
-          <p>Ferramentas organizadas pela forma como as utilizo para analisar, automatizar e melhorar processos.</p>
+    <section id="sobre" class="section section-alt">
+      <div class="container">
+        <p class="section-label">01. Sobre</p>
+        <div class="section-heading">
+          <h2>Dados e automação aplicados a problemas reais.</h2>
+          <p>
+            Meu foco é conectar análise de dados, automação e melhoria de processos para reduzir trabalho manual,
+            aumentar a confiabilidade das informações e apoiar decisões com indicadores mais claros.
+          </p>
         </div>
 
-        <div class="skill-grid">
-          <article class="skill-card">
-            <span class="skill-number">01</span>
-            <h3>Dados & BI</h3>
-            <p>Construção de análises, indicadores e dashboards para apoiar decisões e acompanhar performance.</p>
-            <div class="chips"><span>Power BI</span><span>Power Query</span><span>Excel</span><span>SQL</span></div>
+        <div class="about-grid">
+          <article class="info-card">
+            <span class="card-number">01</span>
+            <h3>Análise de Dados</h3>
+            <p>Tratamento, modelagem e visualização de dados para construção de dashboards, KPIs e análises.</p>
           </article>
-          <article class="skill-card">
-            <span class="skill-number">02</span>
+
+          <article class="info-card">
+            <span class="card-number">02</span>
             <h3>Automações</h3>
-            <p>Digitalização e simplificação de rotinas repetitivas, reduzindo trabalho manual e padronizando fluxos.</p>
-            <div class="chips"><span>Python</span><span>Power Automate</span><span>Power Apps</span><span>RPA</span></div>
+            <p>Automação e digitalização de rotinas usando Python, Power Automate, Power Apps e soluções RPA.</p>
           </article>
-          <article class="skill-card">
-            <span class="skill-number">03</span>
-            <h3>Processos & Projetos</h3>
-            <p>Acompanhamento de entregas, indicadores e oportunidades de melhoria em ambientes multidisciplinares.</p>
-            <div class="chips"><span>KPIs</span><span>Supply Chain</span><span>PMO</span><span>Melhoria Contínua</span></div>
+
+          <article class="info-card">
+            <span class="card-number">03</span>
+            <h3>Melhoria de Processos</h3>
+            <p>Uso de dados e tecnologia para simplificar fluxos, padronizar atividades e melhorar a eficiência operacional.</p>
           </article>
         </div>
       </div>
     </section>
 
     <section id="experiencia" class="section">
-      <div class="container reveal">
-        <div class="section-head">
-          <div><p class="section-kicker">03 — EXPERIÊNCIA</p><h2>Experiência aplicada ao negócio.</h2></div>
-          <p>Uma trajetória que evoluiu de operações e mecatrônica para dados, automação e gestão de processos.</p>
-        </div>
+      <div class="container">
+        <p class="section-label">02. Experiência em destaque</p>
 
-        <div class="timeline">
-          <article class="timeline-item featured">
-            <div class="timeline-meta"><span>2024 — 2026</span><span>Thermo Fisher Scientific</span></div>
-            <div class="timeline-content">
-              <h3>Estagiário em Análise de Dados — Supply Chain & PMO</h3>
-              <ul>
-                <li>Desenvolvimento de dashboards em Power BI, incluindo tratamento, modelagem, KPIs e visualizações.</li>
-                <li>Criação de soluções em Power Apps e Power Automate para digitalização e automação de rotinas.</li>
-                <li>Auditoria de automações RPA com foco em acurácia dos dados e eficiência.</li>
-                <li>Suporte a projetos, prazos e entregas junto a diferentes stakeholders.</li>
-                <li>Melhoria contínua orientada por dados e simplificação de fluxos de trabalho.</li>
-              </ul>
+        <div class="experience-card">
+          <div class="experience-head">
+            <div>
+              <span class="experience-company">Thermo Fisher Scientific</span>
+              <h2>Supply Chain & PMO</h2>
             </div>
-          </article>
+            <span class="experience-period">2024 — 2026</span>
+          </div>
 
-          <article class="timeline-item compact">
-            <div class="timeline-meta"><span>2023</span><span>General Motors do Brasil</span></div>
-            <div class="timeline-content"><h3>Operador de Produção</h3><p>Experiência em ambiente operacional, padrões de qualidade, processos e segurança.</p></div>
-          </article>
+          <p class="experience-intro">
+            Experiência voltada à análise de dados, automação de processos e suporte a projetos,
+            conectando necessidades operacionais a soluções digitais mais eficientes.
+          </p>
 
-          <article class="timeline-item compact">
-            <div class="timeline-meta"><span>2020 — 2023</span><span>CACR Engenharia e Instalações</span></div>
-            <div class="timeline-content"><h3>Técnico em Mecatrônica</h3><p>Base técnica em sistemas, programação, diagnóstico e solução de problemas em campo.</p></div>
-          </article>
+          <div class="experience-grid">
+            <div>
+              <span>01</span>
+              <h3>Dashboards & KPIs</h3>
+              <p>Desenvolvimento de soluções em Power BI desde o tratamento e modelagem dos dados até indicadores e visualizações.</p>
+            </div>
+            <div>
+              <span>02</span>
+              <h3>Power Platform</h3>
+              <p>Criação de soluções com Power Apps e Power Automate para digitalizar rotinas e reduzir atividades manuais.</p>
+            </div>
+            <div>
+              <span>03</span>
+              <h3>Automação & Qualidade</h3>
+              <p>Auditoria de automações RPA e melhoria de processos com foco em acurácia, padronização e confiabilidade.</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="projetos" class="section section-muted">
-      <div class="container reveal">
-        <div class="section-head">
-          <div><p class="section-kicker">04 — PROJETOS</p><h2>Projetos que mostram como eu penso.</h2></div>
-          <p>Este espaço cresce junto com o portfólio. Novos projetos de dados e automação podem ser adicionados aqui.</p>
+    <section id="tecnologias" class="section section-alt">
+      <div class="container">
+        <p class="section-label">03. Tecnologias</p>
+        <div class="section-heading">
+          <h2>Ferramentas que fazem parte do meu dia a dia.</h2>
+          <p>Uma stack voltada principalmente para análise de dados, automação e eficiência de processos.</p>
+        </div>
+
+        <div class="tags">
+          <span>Power BI</span>
+          <span>Power Query</span>
+          <span>Excel</span>
+          <span>SQL</span>
+          <span>Python</span>
+          <span>Power Automate</span>
+          <span>Power Apps</span>
+          <span>RPA</span>
+          <span>Git</span>
+          <span>GitHub</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="projetos" class="section">
+      <div class="container">
+        <p class="section-label">04. Projetos</p>
+        <div class="section-heading">
+          <h2>Projetos em destaque</h2>
+          <p>Projetos pessoais e estudos que mostram como aplico dados, automação e desenvolvimento na prática.</p>
         </div>
 
         <div class="projects-grid">
-          <article class="project-card project-featured">
-            <div class="project-top"><span>PROJETO 01</span><a href="https://github.com/MendesFabricio/asset-flow" target="_blank" rel="noopener noreferrer" aria-label="Abrir AssetFlow Pro">↗</a></div>
-            <div class="project-body">
-              <p class="project-type">DATA · SOFTWARE · IA</p>
-              <h3>AssetFlow Pro</h3>
-              <p>Sistema para consolidação de investimentos, análise quantitativa de risco e apoio ao rebalanceamento de carteiras com inteligência artificial local.</p>
-              <div class="chips"><span>Python</span><span>Next.js</span><span>Flask</span><span>Data Analytics</span></div>
+          <article class="project-card featured-project">
+            <div class="project-top">
+              <span class="project-index">01</span>
+              <span class="project-arrow">↗</span>
             </div>
-            <a class="project-link" href="https://github.com/MendesFabricio/asset-flow" target="_blank" rel="noopener noreferrer">Ver repositório <span>↗</span></a>
+
+            <p class="project-category">DATA · SOFTWARE · IA</p>
+            <h3>AssetFlow Pro</h3>
+            <p>
+              Plataforma para consolidação de investimentos, análise quantitativa de risco e apoio ao rebalanceamento de carteiras.
+            </p>
+
+            <div class="project-tags">
+              <span>Python</span>
+              <span>Next.js</span>
+              <span>Flask</span>
+              <span>Data Analytics</span>
+            </div>
+
+            <a href="https://github.com/MendesFabricio/asset-flow" target="_blank" rel="noopener noreferrer" class="project-link">Ver projeto</a>
           </article>
 
-          <article class="project-card placeholder-card">
-            <div class="project-top"><span>PRÓXIMO</span><span>+</span></div>
-            <div class="project-body">
-              <p class="project-type">POWER BI · ANALYTICS</p>
-              <h3>Projeto de análise de dados</h3>
-              <p>Espaço reservado para um futuro case de dashboard, tratamento de dados ou acompanhamento de indicadores.</p>
+          <article class="project-card project-empty">
+            <div class="project-top">
+              <span class="project-index">02</span>
+              <span class="project-arrow">+</span>
             </div>
+            <p class="project-category">POWER BI · ANALYTICS</p>
+            <h3>Próximo projeto de dados</h3>
+            <p>Espaço reservado para um case de análise, dashboard ou tratamento de dados.</p>
+            <div class="project-tags"><span>Power BI</span><span>SQL</span><span>Excel</span></div>
           </article>
 
-          <article class="project-card placeholder-card">
-            <div class="project-top"><span>PRÓXIMO</span><span>+</span></div>
-            <div class="project-body">
-              <p class="project-type">PYTHON · POWER PLATFORM</p>
-              <h3>Projeto de automação</h3>
-              <p>Espaço reservado para uma automação em Python, Power Automate ou Power Apps com foco em ganho de eficiência.</p>
+          <article class="project-card project-empty">
+            <div class="project-top">
+              <span class="project-index">03</span>
+              <span class="project-arrow">+</span>
             </div>
+            <p class="project-category">AUTOMAÇÃO · PROCESSOS</p>
+            <h3>Próximo projeto de automação</h3>
+            <p>Espaço reservado para uma solução em Python, Power Automate ou Power Apps.</p>
+            <div class="project-tags"><span>Python</span><span>Power Automate</span><span>Power Apps</span></div>
           </article>
         </div>
       </div>
     </section>
 
-    <section id="formacao" class="section">
-      <div class="container reveal">
-        <div class="section-head">
-          <div><p class="section-kicker">05 — FORMAÇÃO</p><h2>Base técnica e multidisciplinar.</h2></div>
-        </div>
-        <div class="education-grid">
-          <article><span>2023 — 2028</span><h3>Engenharia de Instrumentação e Robótica</h3><p>Universidade Federal do ABC — UFABC</p></article>
-          <article><span>2023 — 2028</span><h3>Bacharelado em Ciência e Tecnologia</h3><p>Universidade Federal do ABC — UFABC</p></article>
-          <article><span>2018 — 2020</span><h3>Técnico em Mecatrônica</h3><p>SENAI Armando de Arruda Pereira</p></article>
-        </div>
-      </div>
-    </section>
+    <section id="contato" class="section contact-section">
+      <div class="container contact-box">
+        <p class="section-label">05. Contato</p>
+        <h2>Vamos transformar dados e processos em algo melhor?</h2>
+        <p>Aberto a conexões, projetos e oportunidades envolvendo análise de dados, automação e tecnologia.</p>
 
-    <section id="contato" class="contact-section">
-      <div class="container reveal">
-        <div class="contact-card">
-          <p class="section-kicker">06 — CONTATO</p>
-          <h2>Tem um problema que dados ou automação podem resolver?</h2>
-          <p>Vamos conversar sobre projetos, oportunidades e ideias envolvendo dados, processos e tecnologia.</p>
-          <div class="contact-actions">
-            <a class="btn btn-primary" href="mailto:fmendess520@gmail.com">Enviar e-mail <span>↗</span></a>
-            <a class="btn btn-ghost" href="https://github.com/MendesFabricio" target="_blank" rel="noopener noreferrer">GitHub</a>
-          </div>
+        <div class="contact-actions">
+          <a class="btn btn-primary" href="mailto:fmendess520@gmail.com">Enviar e-mail</a>
+          <a class="btn btn-secondary" href="https://github.com/MendesFabricio" target="_blank" rel="noopener noreferrer">GitHub</a>
         </div>
       </div>
     </section>
   </main>
 
   <footer class="footer">
-    <div class="container footer-inner"><span>Fabrício Mendes</span><span>Dados & Automações · <span id="year"></span></span></div>
+    <div class="container">
+      <p>Fabrício Mendes · Dados & Automações · <span id="year"></span></p>
+    </div>
   </footer>
 
   <script src="script.js"></script>

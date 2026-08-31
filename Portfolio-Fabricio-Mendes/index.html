@@ -1,228 +1,382 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#080916" />
-  <meta name="description" content="Portfólio de Fabrício Mendes — Análise de Dados, Business Intelligence e Automações." />
-  <title>Fabrício Mendes | Dados & Automações</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080a17">
+<title>Fabrício Mendes — Dados & Automações</title>
+<meta name="description" content="Portfólio de Fabrício Mendes — Análise de Dados, Business Intelligence e Automações.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Source+Sans+3:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --black:#06060b;
+  --navy-0:#080a17;
+  --navy-1:#0b1130;
+  --navy-2:#111a44;
+  --indigo:#1c1a52;
+  --violet-deep:#2c1a5e;
+  --violet:#5b32c9;
+  --violet-bright:#8b5cf6;
+  --blue-accent:#4f7cff;
+  --cyan-accent:#38c6d9;
+  --magenta-accent:#c15bd6;
+  --text-hi:#f1eefc;
+  --text-mid:#b9bcdb;
+  --text-low:#767ba3;
+  --line:rgba(158,164,224,0.14);
+  --line-strong:rgba(158,164,224,0.30);
+  --card-bg:rgba(255,255,255,0.028);
+  --card-bg-hover:rgba(255,255,255,0.055);
+  --radius-lg:20px;
+  --radius-md:14px;
+  --maxw:1180px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:'Source Sans 3',sans-serif;
+  color:var(--text-mid);
+  background:
+    radial-gradient(1100px 620px at 12% -8%,rgba(91,50,201,.24),transparent 60%),
+    radial-gradient(900px 700px at 100% 18%,rgba(79,124,255,.16),transparent 55%),
+    radial-gradient(1000px 800px at -10% 60%,rgba(139,92,246,.14),transparent 55%),
+    radial-gradient(1200px 900px at 90% 92%,rgba(44,26,94,.45),transparent 60%),
+    linear-gradient(180deg,var(--black) 0%,var(--navy-0) 18%,var(--navy-1) 42%,var(--indigo) 68%,var(--violet-deep) 88%,#0a0714 100%);
+  background-attachment:fixed;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+::selection{background:var(--violet-bright);color:#fff}
+h1,h2,h3{font-family:'Outfit',sans-serif;color:var(--text-hi);margin:0;letter-spacing:-.01em}
+a{color:inherit;text-decoration:none}
+p{margin:0}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px}
+.eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:12.5px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--violet-bright);
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+}
+.eyebrow::before{content:"";width:20px;height:1px;background:var(--violet-bright);display:inline-block}
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="portfolio-reference-v5.css?v=20260831-reference" />
+/* NAV */
+.site-nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 0;transition:.35s;border-bottom:1px solid transparent}
+.site-nav.scrolled{background:rgba(6,6,14,.72);backdrop-filter:blur(14px) saturate(140%);border-bottom:1px solid var(--line);padding:14px 0}
+.nav-inner{display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-family:'Outfit',sans-serif;font-weight:700;font-size:18px;color:var(--text-hi);display:flex;align-items:center;gap:10px}
+.nav-logo .dot{width:9px;height:9px;border-radius:50%;background:linear-gradient(135deg,var(--blue-accent),var(--violet-bright));box-shadow:0 0 12px rgba(139,92,246,.8)}
+.nav-links{display:flex;align-items:center;gap:36px}
+.nav-links a{font-size:14.5px;color:var(--text-mid);font-weight:500;position:relative;padding:4px 0;transition:color .25s ease}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:-2px;width:0;height:1px;background:var(--violet-bright);transition:width .3s ease}
+.nav-links a:hover{color:var(--text-hi)}
+.nav-links a:hover::after{width:100%}
+.nav-cta{font-size:13.5px!important;font-weight:600!important;color:var(--text-hi)!important;border:1px solid var(--line-strong);border-radius:999px;padding:9px 18px!important}
+.nav-cta::after{display:none}
+.nav-cta:hover{background:rgba(255,255,255,.06);border-color:var(--violet-bright)}
+.nav-toggle{display:none;background:none;border:none;cursor:pointer;padding:6px}
+.nav-toggle span{display:block;width:22px;height:2px;background:var(--text-hi);margin:5px 0;border-radius:2px}
+.mobile-menu{display:none;flex-direction:column;gap:2px;background:rgba(8,9,20,.97);border:1px solid var(--line);border-radius:var(--radius-md);margin-top:14px;padding:10px;backdrop-filter:blur(16px)}
+.mobile-menu.open{display:flex}
+.mobile-menu a{padding:12px 14px;font-size:15px;color:var(--text-mid);border-radius:8px}
+.mobile-menu a:hover{background:rgba(255,255,255,.05);color:var(--text-hi)}
+
+/* SECTIONS */
+section{position:relative;z-index:1;padding:130px 0}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.16,.8,.3,1),transform .8s cubic-bezier(.16,.8,.3,1)}
+.reveal.in-view{opacity:1;transform:translateY(0)}
+.section-head{max-width:680px;margin-bottom:56px}
+.section-head h2{font-size:clamp(28px,3.4vw,42px);margin-top:14px;font-weight:600}
+.section-head p{margin-top:16px;font-size:16.5px;color:var(--text-mid)}
+
+/* HERO */
+.hero{padding:190px 0 140px;position:relative;overflow:hidden}
+.hero-grid-bg{position:absolute;inset:0;z-index:-1;background-image:linear-gradient(rgba(158,164,224,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(158,164,224,.06) 1px,transparent 1px);background-size:52px 52px;mask-image:radial-gradient(ellipse 70% 55% at 50% 20%,black 40%,transparent 90%)}
+.hero-content{max-width:760px}
+.hero h1{font-size:clamp(40px,6vw,68px);font-weight:800;line-height:1.04;margin-top:20px;background:linear-gradient(100deg,#fff 10%,#cdd3ff 45%,#b79bff 75%,#8b5cf6 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.role-line{font-family:'JetBrains Mono',monospace;font-size:15px;color:var(--cyan-accent);margin-top:22px;letter-spacing:.01em}
+.lede{font-size:18.5px;color:var(--text-mid);margin-top:22px;max-width:640px;line-height:1.7}
+.hero-actions{display:flex;gap:14px;margin-top:42px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:9px;padding:14px 26px;border-radius:999px;font-weight:600;font-size:14.5px;transition:.25s;border:1px solid transparent;cursor:pointer}
+.btn-primary{background:linear-gradient(120deg,var(--blue-accent),var(--violet-bright));color:#fff;box-shadow:0 8px 30px -8px rgba(139,92,246,.65)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 34px -6px rgba(139,92,246,.85)}
+.btn-ghost{background:rgba(255,255,255,.03);border-color:var(--line-strong);color:var(--text-hi)}
+.btn-ghost:hover{background:rgba(255,255,255,.07);border-color:var(--violet-bright);transform:translateY(-2px)}
+.hero-stats{display:flex;gap:0;margin-top:76px;border-top:1px solid var(--line);padding-top:30px;flex-wrap:wrap}
+.stat{flex:1;min-width:160px;padding-right:24px}
+.stat .num{font-family:'Outfit',sans-serif;font-weight:700;font-size:27px;color:var(--text-hi)}
+.stat .label{font-size:13.5px;color:var(--text-low);margin-top:4px}
+
+/* ABOUT */
+.about-layout{display:grid;grid-template-columns:1.15fr .85fr;gap:64px;align-items:start}
+.about-text p{font-size:16px;color:var(--text-mid);margin-bottom:18px}
+.about-text strong{color:var(--text-hi);font-weight:600}
+.flow-strip{display:flex;align-items:center;flex-wrap:wrap;gap:10px;margin-top:28px;font-family:'JetBrains Mono',monospace;font-size:12.5px}
+.fnode{padding:8px 14px;border-radius:999px;border:1px solid var(--line-strong);color:var(--text-mid);background:rgba(255,255,255,.02)}
+.farrow{color:var(--violet-bright);font-size:14px}
+.skills-card{background:var(--card-bg);border:1px solid var(--line);border-radius:var(--radius-lg);padding:30px}
+.skills-card h3{font-size:14px;text-transform:uppercase;letter-spacing:.08em;color:var(--text-low);font-weight:600;margin-bottom:18px}
+.badge-grid{display:flex;flex-wrap:wrap;gap:9px}
+.badge{font-family:'JetBrains Mono',monospace;font-size:12.5px;padding:7px 13px;border-radius:8px;background:rgba(139,92,246,.09);border:1px solid rgba(139,92,246,.28);color:#d7cbff}
+.context-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:26px;padding-top:22px;border-top:1px solid var(--line)}
+.context-row div{font-size:13.5px;color:var(--text-low)}
+.context-row strong{display:block;color:var(--text-hi);font-size:14.5px;margin-bottom:2px}
+
+/* PROJECTS */
+.projects-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:26px}
+.proj-card{position:relative;background:var(--card-bg);border:1px solid var(--line);border-radius:var(--radius-lg);padding:32px;overflow:hidden;transition:transform .35s cubic-bezier(.16,.8,.3,1),border-color .35s ease,background .35s ease}
+.proj-card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--accent-grad);opacity:.9}
+.proj-card:hover{transform:translateY(-6px);background:var(--card-bg-hover);border-color:var(--line-strong)}
+.proj-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+.proj-lang{display:flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--text-low)}
+.swatch{width:9px;height:9px;border-radius:50%;background:var(--accent-solid)}
+.proj-card h3{font-size:21px;margin-bottom:12px;font-weight:600}
+.proj-card p.desc{font-size:14.5px;color:var(--text-mid);margin-bottom:20px;line-height:1.65}
+.proj-stack{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:22px}
+.proj-stack span{font-family:'JetBrains Mono',monospace;font-size:11px;padding:5px 10px;border-radius:6px;background:rgba(255,255,255,.04);color:var(--text-mid);border:1px solid var(--line)}
+.proj-link{display:inline-flex;align-items:center;gap:7px;font-size:13.5px;font-weight:600;color:var(--text-hi);border-bottom:1px solid var(--line-strong);padding-bottom:2px;transition:.25s}
+.proj-link:hover{border-color:var(--violet-bright);color:var(--violet-bright);gap:10px}
+.proj-note{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--text-low);text-transform:uppercase;letter-spacing:.05em}
+.p-asset{--accent-solid:#4f7cff;--accent-grad:linear-gradient(90deg,#4f7cff,#7c8cff)}
+.p-bi{--accent-solid:#8b5cf6;--accent-grad:linear-gradient(90deg,#7c3aed,#8b5cf6)}
+.p-platform{--accent-solid:#c15bd6;--accent-grad:linear-gradient(90deg,#8b5cf6,#c15bd6)}
+.p-rpa{--accent-solid:#38c6d9;--accent-grad:linear-gradient(90deg,#38c6d9,#4f7cff)}
+
+/* EXPERIENCE */
+.stage-list{display:flex;flex-direction:column;gap:0}
+.stage-item{display:grid;grid-template-columns:64px 1fr;gap:28px;padding:38px 0;border-bottom:1px solid var(--line);position:relative}
+.stage-item:last-child{border-bottom:none}
+.stage-num{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--text-low);display:flex;flex-direction:column;align-items:center;gap:10px}
+.stage-dot{width:12px;height:12px;border-radius:50%;background:rgba(139,92,246,.25);border:1px solid var(--line-strong);transition:.4s}
+.stage-item.in-view .stage-dot{background:var(--violet-bright);box-shadow:0 0 16px 3px rgba(139,92,246,.7)}
+.stage-body h3{font-size:19px;margin-bottom:6px;font-weight:600}
+.stage-tag{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--cyan-accent);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px;display:block}
+.stage-body ul{margin:10px 0 0;padding-left:18px;color:var(--text-mid);font-size:15px;line-height:1.75}
+.stage-body li::marker{color:var(--violet-bright)}
+.stage-body strong{color:var(--text-hi);font-weight:600}
+
+/* CONTACT */
+.contact-card{background:linear-gradient(135deg,rgba(79,124,255,.10),rgba(139,92,246,.10));border:1px solid var(--line-strong);border-radius:28px;padding:64px;text-align:center}
+.contact-card h2{font-size:clamp(28px,4vw,42px);margin:16px 0 18px}
+.contact-card p{max-width:600px;margin:0 auto;font-size:16.5px;color:var(--text-mid)}
+.contact-actions{display:flex;gap:16px;justify-content:center;margin-top:36px;flex-wrap:wrap}
+.contact-meta{display:flex;gap:34px;justify-content:center;margin-top:40px;flex-wrap:wrap;font-size:14px;color:var(--text-low)}
+.contact-meta a{color:var(--text-mid);font-weight:500}
+.contact-meta a:hover{color:var(--violet-bright)}
+footer{padding:48px 0 40px}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:28px;border-top:1px solid var(--line);font-size:13px;color:var(--text-low);flex-wrap:wrap;gap:12px}
+.footer-social{display:flex;gap:20px}
+.footer-social a:hover{color:var(--violet-bright)}
+
+@media(max-width:900px){
+  .nav-links{display:none}.nav-toggle{display:block}.about-layout{grid-template-columns:1fr;gap:40px}.projects-grid{grid-template-columns:1fr}.contact-card{padding:44px 28px}.stage-item{grid-template-columns:40px 1fr;gap:18px}
+}
+@media(max-width:600px){
+  .wrap{padding:0 20px}section{padding:90px 0}.hero{padding:150px 0 90px}.hero-stats{gap:20px}.stat{min-width:44%}.hero-actions{flex-direction:column;align-items:stretch}.contact-actions{flex-direction:column;align-items:stretch}.contact-meta{flex-direction:column;align-items:center;gap:14px}.footer-bottom{flex-direction:column;text-align:center}.context-row{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{transition:none;opacity:1;transform:none}.btn,.proj-card{transition:none}}
+</style>
 </head>
 <body>
-  <header class="header">
-    <div class="container nav">
-      <a href="#inicio" class="brand"><span class="brand-dot"></span>Fabrício Mendes</a>
-      <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
-      <nav class="nav-links">
-        <a href="#sobre">Sobre</a>
-        <a href="#projetos">Projetos</a>
-        <a href="#experiencia">Experiência</a>
-        <a href="#contato" class="nav-contact">Contato</a>
-      </nav>
+
+<nav class="site-nav" id="siteNav">
+  <div class="wrap nav-inner">
+    <a href="#top" class="nav-logo"><span class="dot"></span>Fabrício Mendes</a>
+    <div class="nav-links">
+      <a href="#sobre">Sobre</a>
+      <a href="#projetos">Projetos</a>
+      <a href="#experiencia">Experiência</a>
+      <a href="#contato" class="nav-cta">Contato</a>
     </div>
-  </header>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu"><span></span><span></span><span></span></button>
+  </div>
+  <div class="wrap">
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#sobre">Sobre</a>
+      <a href="#projetos">Projetos</a>
+      <a href="#experiencia">Experiência</a>
+      <a href="#contato">Contato</a>
+    </div>
+  </div>
+</nav>
 
-  <main>
-    <section id="inicio" class="hero">
-      <div class="container hero-inner">
-        <div class="hero-copy">
-          <p class="eyebrow">PORTFÓLIO · DADOS & AUTOMAÇÕES</p>
-          <h1>Fabrício Mendes</h1>
-          <p class="hero-role">Análise de Dados <span>·</span> Business Intelligence <span>·</span> Automações</p>
+<main id="top">
+  <section class="hero">
+    <div class="hero-grid-bg" aria-hidden="true"></div>
+    <div class="wrap">
+      <div class="hero-content">
+        <span class="eyebrow">Portfólio de dados & automações</span>
+        <h1>Fabrício Mendes</h1>
+        <p class="role-line">Análise de Dados · Business Intelligence · Automações</p>
+        <p class="lede">Transformo dados e rotinas em soluções mais claras, confiáveis e eficientes — combinando Power BI, Python, SQL e Microsoft Power Platform para apoiar decisões e simplificar processos.</p>
+        <div class="hero-actions">
+          <a href="#projetos" class="btn btn-primary">Ver Projetos →</a>
+          <a href="mailto:fmendess520@gmail.com" class="btn btn-ghost">E-mail</a>
+          <a href="https://github.com/MendesFabricio" target="_blank" rel="noopener" class="btn btn-ghost">GitHub</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><div class="num">2024–2026</div><div class="label">Thermo Fisher · Supply Chain & PMO</div></div>
+          <div class="stat"><div class="num">Power BI</div><div class="label">Dashboards, modelagem & KPIs</div></div>
+          <div class="stat"><div class="num">Power Platform</div><div class="label">Apps & automações</div></div>
+          <div class="stat"><div class="num">Python + SQL</div><div class="label">Dados & automação</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-          <p class="hero-text">
-            Transformo dados, indicadores e rotinas em soluções mais claras e eficientes.
-            Meu foco é combinar Power BI, Python, SQL e Microsoft Power Platform para apoiar decisões
-            e simplificar processos.
-          </p>
-
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#projetos">Ver projetos <span>→</span></a>
-            <a class="btn btn-secondary" href="mailto:fmendess520@gmail.com">E-mail</a>
-            <a class="btn btn-secondary" href="https://github.com/MendesFabricio" target="_blank" rel="noopener noreferrer">GitHub</a>
+  <section id="sobre">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Sobre mim</span>
+        <h2>Onde dados, automação e processos convergem</h2>
+      </div>
+      <div class="about-layout">
+        <div class="about-text reveal">
+          <p>Meu foco está em transformar necessidades operacionais em soluções digitais que sejam <strong>claras, confiáveis e úteis para decisão</strong>. Trabalho principalmente com análise de dados, Business Intelligence e automação de rotinas.</p>
+          <p>Na <strong>Thermo Fisher Scientific</strong>, atuei em Supply Chain & PMO desenvolvendo dashboards em Power BI, soluções com Power Apps e Power Automate, auditoria de automações RPA e iniciativas de melhoria contínua.</p>
+          <p>Gosto especialmente de projetos em que dados e automação se complementam: primeiro tornando a informação confiável, depois transformando o fluxo em algo mais simples e escalável.</p>
+          <div class="flow-strip">
+            <span class="fnode">Dados confiáveis</span><span class="farrow">→</span>
+            <span class="fnode">Indicadores claros</span><span class="farrow">→</span>
+            <span class="fnode">Automação</span><span class="farrow">→</span>
+            <span class="fnode">Melhoria contínua</span>
           </div>
-
-          <div class="hero-stats">
-            <div><strong>2 anos</strong><span>Dados & automação em Supply Chain / PMO</span></div>
-            <div><strong>Power BI</strong><span>Dashboards, KPIs e modelagem</span></div>
-            <div><strong>Power Platform</strong><span>Apps, fluxos e digitalização</span></div>
-            <div><strong>Python + SQL</strong><span>Análise e automações</span></div>
+        </div>
+        <div class="skills-card reveal">
+          <h3>Stack & competências</h3>
+          <div class="badge-grid">
+            <span class="badge">Power BI</span><span class="badge">Power Query</span><span class="badge">Excel</span><span class="badge">SQL</span><span class="badge">Python</span><span class="badge">Power Automate</span><span class="badge">Power Apps</span><span class="badge">RPA</span><span class="badge">Git</span><span class="badge">GitHub</span>
+          </div>
+          <div class="context-row">
+            <div><strong>Área</strong>Dados & Automações</div>
+            <div><strong>Contexto</strong>Supply Chain & PMO</div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="sobre" class="section about">
-      <div class="container">
-        <p class="section-label">SOBRE MIM</p>
-        <h2 class="section-title">Onde dados, automação e usabilidade convergem</h2>
+  <section id="projetos">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Projetos & cases</span>
+        <h2>Dados e automação aplicados na prática</h2>
+        <p>Projetos pessoais e experiências profissionais organizados pelo problema resolvido, tecnologia utilizada e impacto no processo.</p>
+      </div>
+      <div class="projects-grid">
+        <article class="proj-card p-asset reveal">
+          <div class="proj-top"><div class="proj-lang"><span class="swatch"></span>Python · Software · Dados</div></div>
+          <h3>AssetFlow Pro</h3>
+          <p class="desc">Plataforma para consolidação de investimentos, análise quantitativa de risco e apoio ao rebalanceamento de carteiras, unindo desenvolvimento de software e análise de dados.</p>
+          <div class="proj-stack"><span>Python</span><span>Next.js</span><span>Flask</span><span>Data Analytics</span></div>
+          <a href="https://github.com/MendesFabricio/asset-flow" target="_blank" rel="noopener" class="proj-link">Ver repositório ↗</a>
+        </article>
 
-        <div class="about-grid">
-          <div class="about-copy">
-            <p>
-              Atuo com foco em <strong>análise de dados e automação de processos</strong>, conectando necessidades
-              operacionais a dashboards, indicadores e soluções digitais que deixam o trabalho mais confiável e escalável.
-            </p>
-            <p>
-              Na Thermo Fisher Scientific, trabalhei em Supply Chain & PMO com <strong>Power BI, Power Apps e Power Automate</strong>,
-              desenvolvendo dashboards, automatizando rotinas, apoiando projetos e auditando automações RPA.
-            </p>
-            <p>
-              Gosto especialmente de problemas em que dados fragmentados, tarefas manuais e processos pouco claros podem ser
-              transformados em uma experiência mais simples para quem precisa tomar decisões.
-            </p>
+        <article class="proj-card p-bi reveal">
+          <div class="proj-top"><div class="proj-lang"><span class="swatch"></span>Power BI · Power Query</div><span class="proj-note">Case profissional</span></div>
+          <h3>Dashboards & KPIs</h3>
+          <p class="desc">Construção de dashboards desde o tratamento e modelagem dos dados até a definição de indicadores e visualizações para acompanhamento de KPIs em Supply Chain & PMO.</p>
+          <div class="proj-stack"><span>Power BI</span><span>Power Query</span><span>Excel</span><span>KPIs</span></div>
+        </article>
 
-            <div class="about-flow">
-              <span class="flow-pill">Dados confiáveis</span><span class="flow-arrow">→</span>
-              <span class="flow-pill">Modelagem</span><span class="flow-arrow">→</span>
-              <span class="flow-pill">Visualização</span><span class="flow-arrow">→</span>
-              <span class="flow-pill">Automação</span>
-            </div>
-          </div>
+        <article class="proj-card p-platform reveal">
+          <div class="proj-top"><div class="proj-lang"><span class="swatch"></span>Power Apps · Power Automate</div><span class="proj-note">Case profissional</span></div>
+          <h3>Automação de Processos</h3>
+          <p class="desc">Digitalização e automação de rotinas operacionais para reduzir atividades manuais, padronizar fluxos e tornar o processo mais confiável e escalável.</p>
+          <div class="proj-stack"><span>Power Apps</span><span>Power Automate</span><span>Processos</span><span>Automação</span></div>
+        </article>
 
-          <aside class="stack-card">
-            <h3>STACK & COMPETÊNCIAS</h3>
-            <div class="stack-tags">
-              <span>Power BI</span><span>Power Query</span><span>Excel</span><span>SQL</span>
-              <span>Python</span><span>Power Apps</span><span>Power Automate</span><span>RPA</span>
-              <span>Git</span><span>GitHub</span>
-            </div>
-            <div class="stack-meta">
-              <div><strong>Inglês</strong><span>Intermediário</span></div>
-              <div><strong>Espanhol</strong><span>Intermediário</span></div>
-            </div>
-          </aside>
+        <article class="proj-card p-rpa reveal">
+          <div class="proj-top"><div class="proj-lang"><span class="swatch"></span>RPA · Qualidade de Dados</div><span class="proj-note">Case profissional</span></div>
+          <h3>Auditoria & Confiabilidade</h3>
+          <p class="desc">Auditoria de automações e validação de dados com foco em acurácia, eficiência e identificação de oportunidades de melhoria contínua.</p>
+          <div class="proj-stack"><span>RPA</span><span>Data Quality</span><span>Auditoria</span><span>Melhoria Contínua</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="experiencia">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Como eu trabalho</span>
+        <h2>Da informação bruta à melhoria do processo</h2>
+        <p>Uma lógica simples para conectar análise, automação e operação sem transformar a página em um currículo tradicional.</p>
+      </div>
+      <div class="stage-list">
+        <div class="stage-item reveal">
+          <div class="stage-num">01<div class="stage-dot"></div></div>
+          <div class="stage-body"><span class="stage-tag">Dados confiáveis</span><h3>Preparar a base para análise</h3><ul><li>Tratamento, estruturação e modelagem de dados para que indicadores partam de uma fonte consistente.</li></ul></div>
+        </div>
+        <div class="stage-item reveal">
+          <div class="stage-num">02<div class="stage-dot"></div></div>
+          <div class="stage-body"><span class="stage-tag">Visualização</span><h3>Transformar informação em indicadores claros</h3><ul><li>Dashboards e KPIs em <strong>Power BI</strong> pensados para acompanhamento operacional e tomada de decisão.</li></ul></div>
+        </div>
+        <div class="stage-item reveal">
+          <div class="stage-num">03<div class="stage-dot"></div></div>
+          <div class="stage-body"><span class="stage-tag">Automação</span><h3>Reduzir trabalho manual e padronizar fluxos</h3><ul><li>Soluções com <strong>Power Apps, Power Automate e Python</strong> para digitalizar atividades e simplificar rotinas.</li></ul></div>
+        </div>
+        <div class="stage-item reveal">
+          <div class="stage-num">04<div class="stage-dot"></div></div>
+          <div class="stage-body"><span class="stage-tag">Confiabilidade</span><h3>Validar, auditar e melhorar continuamente</h3><ul><li>Auditoria de automações RPA e análise de oportunidades para aumentar a acurácia dos dados e a eficiência dos processos.</li></ul></div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="projetos" class="section projects">
-      <div class="container">
-        <div class="projects-head">
-          <div>
-            <p class="section-label">PROJETOS & CASES</p>
-            <h2 class="section-title">Dados e automação aplicados na prática</h2>
-            <p class="section-lead">Um projeto pessoal público e alguns exemplos de frentes profissionais que representam o tipo de problema que gosto de resolver.</p>
-          </div>
+  <section id="contato">
+    <div class="wrap">
+      <div class="contact-card reveal">
+        <span class="eyebrow" style="justify-content:center">Vamos conversar</span>
+        <h2>Dados mais claros. Processos mais inteligentes.</h2>
+        <p>Aberto a conexões, projetos e oportunidades envolvendo análise de dados, Business Intelligence, automação e tecnologia.</p>
+        <div class="contact-actions">
+          <a href="mailto:fmendess520@gmail.com" class="btn btn-primary">Enviar e-mail</a>
+          <a href="https://github.com/MendesFabricio" target="_blank" rel="noopener" class="btn btn-ghost">GitHub</a>
         </div>
-
-        <div class="projects-grid">
-          <article class="project-card">
-            <p class="project-kicker">Python · Next.js · Flask</p>
-            <h3>AssetFlow Pro</h3>
-            <p>Plataforma para consolidação de investimentos, análise quantitativa de risco e apoio ao rebalanceamento de carteiras, combinando dados, backend e inteligência artificial local.</p>
-            <div class="project-tags"><span>Python</span><span>Next.js</span><span>Flask</span><span>Data Analytics</span><span>IA</span></div>
-            <a class="project-link" href="https://github.com/MendesFabricio/asset-flow" target="_blank" rel="noopener noreferrer">Ver repositório ↗</a>
-          </article>
-
-          <article class="project-card purple">
-            <p class="project-kicker">Power BI · Power Query</p>
-            <h3>Supply Chain BI</h3>
-            <p>Desenvolvimento de dashboards para acompanhamento de KPIs, passando pelo tratamento e modelagem dos dados até a construção de indicadores e visualizações para suporte à operação.</p>
-            <div class="project-tags"><span>Power BI</span><span>Power Query</span><span>Excel</span><span>KPIs</span></div>
-            <span class="project-note">Case profissional · Thermo Fisher Scientific</span>
-          </article>
-
-          <article class="project-card purple">
-            <p class="project-kicker">Power Apps · Power Automate</p>
-            <h3>Digitalização de Rotinas</h3>
-            <p>Soluções para substituir atividades manuais por fluxos digitais, padronizando processos e conectando formulários, aprovações e automações dentro da Microsoft Power Platform.</p>
-            <div class="project-tags"><span>Power Apps</span><span>Power Automate</span><span>Processos</span></div>
-            <span class="project-note">Case profissional · Thermo Fisher Scientific</span>
-          </article>
-
-          <article class="project-card cyan">
-            <p class="project-kicker">RPA · Qualidade · Processos</p>
-            <h3>Confiabilidade de Automações</h3>
-            <p>Auditoria de rotinas automatizadas com foco em acurácia dos dados, estabilidade dos processos e identificação de oportunidades de melhoria contínua.</p>
-            <div class="project-tags"><span>RPA</span><span>Auditoria</span><span>Dados</span><span>Melhoria Contínua</span></div>
-            <span class="project-note">Case profissional · Thermo Fisher Scientific</span>
-          </article>
-        </div>
+        <div class="contact-meta"><span>fmendess520@gmail.com</span><a href="https://github.com/MendesFabricio" target="_blank" rel="noopener">github.com/MendesFabricio</a></div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="experiencia" class="section experience">
-      <div class="container">
-        <p class="section-label">EXPERIÊNCIA EM DESTAQUE</p>
-
-        <div class="experience-intro">
-          <div>
-            <span class="company-badge">THERMO FISHER SCIENTIFIC · 2024 — 2026</span>
-            <h2 class="section-title">Da informação bruta à melhoria do processo</h2>
-          </div>
-          <div class="experience-context">
-            <p>Minha atuação em Supply Chain & PMO combinou dados, automação e acompanhamento de projetos. A lógica abaixo resume como essas frentes se conectavam.</p>
-          </div>
-        </div>
-
-        <div class="process-list">
-          <article class="process-item">
-            <div class="process-index">01</div>
-            <div class="process-content">
-              <span class="process-kicker">DADOS & INDICADORES</span>
-              <h3>Transformar informação em visibilidade</h3>
-              <p>Tratamento e organização de dados para construir dashboards e KPIs capazes de apoiar o acompanhamento das operações.</p>
-            </div>
-          </article>
-
-          <article class="process-item">
-            <div class="process-index">02</div>
-            <div class="process-content">
-              <span class="process-kicker">MODELO & VISUALIZAÇÃO</span>
-              <h3>Estruturar análises para facilitar decisões</h3>
-              <p>Modelagem dos dados e construção de visualizações em Power BI pensando não apenas no indicador, mas em como ele será interpretado no dia a dia.</p>
-            </div>
-          </article>
-
-          <article class="process-item">
-            <div class="process-index">03</div>
-            <div class="process-content">
-              <span class="process-kicker">AUTOMAÇÃO</span>
-              <h3>Reduzir atividades manuais e padronizar rotinas</h3>
-              <p>Uso de Power Apps e Power Automate para digitalizar processos e criar fluxos mais consistentes e fáceis de acompanhar.</p>
-            </div>
-          </article>
-
-          <article class="process-item">
-            <div class="process-index">04</div>
-            <div class="process-content">
-              <span class="process-kicker">QUALIDADE & MELHORIA</span>
-              <h3>Sustentar confiança nos dados e nas automações</h3>
-              <p>Auditoria de automações RPA e identificação de oportunidades de melhoria contínua para aumentar confiabilidade e eficiência.</p>
-            </div>
-          </article>
-        </div>
+  <footer>
+    <div class="wrap">
+      <div class="footer-bottom">
+        <span>© 2026 Fabrício Mendes — Dados, BI & Automações</span>
+        <div class="footer-social"><a href="https://github.com/MendesFabricio" target="_blank" rel="noopener">GitHub</a><a href="mailto:fmendess520@gmail.com">E-mail</a></div>
       </div>
-    </section>
+    </div>
+  </footer>
+</main>
 
-    <section id="contato" class="section contact">
-      <div class="container">
-        <div class="contact-card">
-          <p class="section-label">VAMOS CONVERSAR</p>
-          <h2 class="section-title">Dados e processos podem funcionar melhor.</h2>
-          <p class="section-lead">Aberto a conexões, projetos e oportunidades envolvendo análise de dados, Business Intelligence, automações e tecnologia.</p>
-          <div class="contact-actions">
-            <a class="btn btn-primary" href="mailto:fmendess520@gmail.com">Enviar e-mail <span>→</span></a>
-            <a class="btn btn-secondary" href="https://github.com/MendesFabricio" target="_blank" rel="noopener noreferrer">GitHub</a>
-          </div>
-          <div class="contact-meta"><span>fmendess520@gmail.com</span><span>São Paulo · SP</span></div>
-        </div>
+<script>
+(function(){
+  var nav=document.getElementById('siteNav');
+  function onScroll(){if(window.scrollY>24){nav.classList.add('scrolled')}else{nav.classList.remove('scrolled')}}
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
 
-        <footer class="footer">
-          <div class="footer-row">
-            <span>© <span id="year"></span> Fabrício Mendes — Dados & Automações</span>
-            <div class="footer-links"><a href="https://github.com/MendesFabricio" target="_blank" rel="noopener noreferrer">GitHub</a><a href="mailto:fmendess520@gmail.com">E-mail</a></div>
-          </div>
-        </footer>
-      </div>
-    </section>
-  </main>
+  var toggle=document.getElementById('navToggle');
+  var menu=document.getElementById('mobileMenu');
+  toggle.addEventListener('click',function(){menu.classList.toggle('open')});
+  menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){menu.classList.remove('open')})});
 
-  <script src="script.js?v=20260831-reference"></script>
+  var reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!reduceMotion&&'IntersectionObserver'in window){
+    var revealObserver=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add('in-view');revealObserver.unobserve(entry.target)}})},{threshold:.14,rootMargin:'0px 0px -40px 0px'});
+    document.querySelectorAll('.reveal').forEach(function(el){revealObserver.observe(el)});
+    var stageObserver=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add('in-view')}})},{threshold:.5});
+    document.querySelectorAll('.stage-item').forEach(function(el){stageObserver.observe(el)});
+  }else{
+    document.querySelectorAll('.reveal,.stage-item').forEach(function(el){el.classList.add('in-view')});
+  }
+})();
+</script>
 </body>
 </html>

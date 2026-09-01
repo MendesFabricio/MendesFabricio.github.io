@@ -93,11 +93,15 @@ section{position:relative;z-index:1;padding:120px 0}
 .role-line{font-family:'JetBrains Mono',monospace;font-size:15px;color:var(--cyan);margin-top:22px;letter-spacing:.01em}
 .lede{font-size:18px;color:var(--text-mid);margin-top:22px;max-width:680px;line-height:1.7}
 .hero-actions{display:flex;gap:14px;margin-top:40px;flex-wrap:wrap;align-items:center}
-.btn{display:inline-flex;align-items:center;gap:9px;padding:13px 24px;border-radius:999px;font-weight:600;font-size:14.5px;transition:transform .25s ease,box-shadow .25s ease,background .25s ease,border-color .25s ease;border:1px solid transparent;cursor:pointer}
+.btn{display:inline-flex;align-items:center;gap:9px;padding:13px 24px;border-radius:999px;font-weight:600;font-size:14.5px;transition:transform .25s ease,box-shadow .25s ease,background .25s ease,border-color .25s ease;border:1px solid transparent;cursor:pointer;font-family:inherit}
 .btn-primary{background:linear-gradient(120deg,#1746b8,#2e6fd8);color:#fff;box-shadow:0 8px 28px -8px rgba(29,78,216,.55)}
 .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 32px -6px rgba(29,78,216,.72)}
 .btn-ghost{background:rgba(255,255,255,.03);border-color:var(--line-strong);color:var(--text-hi)}
 .btn-ghost:hover{background:rgba(52,120,237,.09);border-color:var(--blue-bright);transform:translateY(-2px)}
+
+/* FEEDBACK DE COPIADO */
+.btn-copy{transition:background .3s ease,box-shadow .3s ease,transform .25s ease}
+.btn-copy.copied{background:linear-gradient(120deg,#059669,#10b981)!important;box-shadow:0 8px 28px -8px rgba(16,185,129,.6)!important;transform:scale(1.02)}
 
 /* SOBRE */
 .about-layout{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:start}
@@ -139,7 +143,7 @@ section{position:relative;z-index:1;padding:120px 0}
 .p-platform{--accent-solid:#248eb7;--accent-grad:linear-gradient(90deg,#176ba1,#35bdd3)}
 .p-rpa{--accent-solid:#35bdd3;--accent-grad:linear-gradient(90deg,#2388a8,#3478ed)}
 
-/* EXPERIÊNCIA / PROCESSO */
+/* EXPERIÊNCIA */
 .stage-list{display:flex;flex-direction:column;gap:0}
 .stage-item{display:grid;grid-template-columns:64px 1fr;gap:28px;padding:38px 0;border-bottom:1px solid var(--line);position:relative}
 .stage-item:last-child{border-bottom:none}
@@ -157,7 +161,7 @@ section{position:relative;z-index:1;padding:120px 0}
 .contact-card h2{font-size:clamp(28px,4vw,42px);margin:16px 0 18px}
 .contact-card p{max-width:600px;margin:0 auto;font-size:16.5px;color:var(--text-mid)}
 .contact-actions{display:flex;gap:14px;justify-content:center;margin-top:36px;flex-wrap:wrap}
-.contact-meta{display:flex;gap:28px;justify-content:center;margin-top:38px;flex-wrap:wrap;font-size:14px;color:var(--text-low)}
+.contact-meta{display:flex;gap:28px;justify-content:center;margin-top:38px;flex-wrap:wrap;font-size:14px;color:var(--text-low);align-items:center}
 .contact-meta a{color:var(--text-mid);font-weight:500}
 .contact-meta a:hover{color:var(--blue-bright)}
 footer{padding:48px 0 40px}
@@ -208,7 +212,6 @@ footer{padding:48px 0 40px}
           <a href="#projetos" class="btn btn-primary">Ver Projetos →</a>
           <a href="https://www.linkedin.com/in/fabmendes/" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn</a>
           <a href="https://github.com/MendesFabricio" target="_blank" rel="noopener" class="btn btn-ghost">GitHub</a>
-          <a href="mailto:fmendess520@gmail.com" class="btn btn-ghost">Enviar E-mail</a>
         </div>
       </div>
     </div>
@@ -301,7 +304,7 @@ footer{padding:48px 0 40px}
     </div>
   </section>
 
-  <!-- EXPERIÊNCIA / COMO EU TRABALHO -->
+  <!-- EXPERIÊNCIA -->
   <section id="experiencia">
     <div class="wrap">
       <div class="section-head reveal"><span class="eyebrow">Como eu trabalho</span><h2>Da informação bruta à melhoria do processo</h2><p>Uma metodologia estruturada para conectar dados, tecnologia e operação com foco em impacto real.</p></div>
@@ -323,7 +326,10 @@ footer{padding:48px 0 40px}
         <p>Aberto a novas oportunidades, conexões e projetos envolvendo análise de dados, BI, Power Platform e automação de processos.</p>
         
         <div class="contact-actions">
-          <a href="mailto:fmendess520@gmail.com" class="btn btn-primary">✉ fmendess520@gmail.com</a>
+          <!-- Botão que copia o e-mail -->
+          <button type="button" class="btn btn-primary btn-copy" onclick="copyEmail(this, 'fmendess520@gmail.com')">
+            <span class="copy-icon">✉</span> <span class="copy-text">fmendess520@gmail.com</span>
+          </button>
           <a href="https://wa.me/5511963509446" target="_blank" rel="noopener" class="btn btn-ghost">WhatsApp Direct</a>
           <a href="https://www.linkedin.com/in/fabmendes/" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn</a>
           <a href="https://github.com/MendesFabricio" target="_blank" rel="noopener" class="btn btn-ghost">GitHub</a>
@@ -331,8 +337,7 @@ footer{padding:48px 0 40px}
 
         <div class="contact-meta">
           <span>📍 São Paulo – SP</span>
-          <a href="mailto:fmendess520@gmail.com">fmendess520@gmail.com</a>
-          <a href="tel:+5511963509446">(11) 96350-9446</a>
+          <a href="https://wa.me/5511963509446" target="_blank" rel="noopener">(11) 96350-9446</a>
         </div>
       </div>
     </div>
@@ -352,6 +357,53 @@ footer{padding:48px 0 40px}
 </main>
 
 <script>
+function copyEmail(btn, email) {
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(email).then(function() {
+      showCopiedState(btn);
+    }).catch(function() {
+      fallbackCopy(email, btn);
+    });
+  } else {
+    fallbackCopy(email, btn);
+  }
+}
+
+function showCopiedState(btn) {
+  var textEl = btn.querySelector('.copy-text');
+  var iconEl = btn.querySelector('.copy-icon');
+  if (!textEl) return;
+  var origText = textEl.innerText;
+  var origIcon = iconEl ? iconEl.innerText : '';
+
+  btn.classList.add('copied');
+  textEl.innerText = '✓ Copiado!';
+  if (iconEl) iconEl.innerText = '';
+
+  setTimeout(function() {
+    btn.classList.remove('copied');
+    textEl.innerText = origText;
+    if (iconEl) iconEl.innerText = origIcon;
+  }, 2400);
+}
+
+function fallbackCopy(text, btn) {
+  var textArea = document.createElement("textarea");
+  textArea.value = text;
+  textArea.style.position = "fixed";
+  textArea.style.left = "-999999px";
+  document.body.appendChild(textArea);
+  textArea.focus();
+  textArea.select();
+  try {
+    document.execCommand('copy');
+    showCopiedState(btn);
+  } catch (err) {
+    prompt("Copie o e-mail:", text);
+  }
+  document.body.removeChild(textArea);
+}
+
 (function(){
   var nav=document.getElementById('siteNav');
   function onScroll(){if(window.scrollY>24){nav.classList.add('scrolled')}else{nav.classList.remove('scrolled')}}

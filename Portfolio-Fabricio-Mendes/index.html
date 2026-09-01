@@ -86,18 +86,24 @@ section{position:relative;z-index:1;padding:120px 0}
 .section-head p{margin-top:16px;font-size:16.5px;color:var(--text-mid)}
 
 /* HERO */
-.hero{padding:180px 0 135px;position:relative;overflow:hidden}
+.hero{padding:180px 0 130px;position:relative;overflow:hidden}
 .hero-grid-bg{position:absolute;inset:0;z-index:-1;background-image:linear-gradient(rgba(105,151,205,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(105,151,205,.045) 1px,transparent 1px);background-size:52px 52px;mask-image:radial-gradient(ellipse 72% 58% at 50% 20%,black 38%,transparent 92%)}
 .hero-content{max-width:780px}
 .hero h1{font-size:clamp(40px,6vw,68px);font-weight:800;line-height:1.04;margin-top:20px;background:linear-gradient(100deg,#fff 8%,#dce9fb 52%,#a8c9f3 78%,#73a9ee 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
 .role-line{font-family:'JetBrains Mono',monospace;font-size:15px;color:var(--cyan);margin-top:22px;letter-spacing:.01em}
 .lede{font-size:18px;color:var(--text-mid);margin-top:22px;max-width:680px;line-height:1.7}
-.hero-actions{display:flex;gap:14px;margin-top:40px;flex-wrap:wrap;align-items:center}
+.hero-actions{display:flex;gap:14px;margin-top:36px;flex-wrap:wrap;align-items:center}
 .btn{display:inline-flex;align-items:center;gap:9px;padding:13px 24px;border-radius:999px;font-weight:600;font-size:14.5px;transition:transform .25s ease,box-shadow .25s ease,background .25s ease,border-color .25s ease;border:1px solid transparent;cursor:pointer;font-family:inherit}
 .btn-primary{background:linear-gradient(120deg,#1746b8,#2e6fd8);color:#fff;box-shadow:0 8px 28px -8px rgba(29,78,216,.55)}
 .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 32px -6px rgba(29,78,216,.72)}
 .btn-ghost{background:rgba(255,255,255,.03);border-color:var(--line-strong);color:var(--text-hi)}
 .btn-ghost:hover{background:rgba(52,120,237,.09);border-color:var(--blue-bright);transform:translateY(-2px)}
+
+/* HERO STATS */
+.hero-stats{display:flex;gap:36px;margin-top:44px;padding-top:26px;border-top:1px solid var(--line);flex-wrap:wrap}
+.stat{display:flex;flex-direction:column;gap:3px}
+.stat .num{font-family:'Outfit',sans-serif;font-weight:700;font-size:22px;color:var(--text-hi)}
+.stat .label{font-size:12.5px;color:var(--text-low);font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.03em}
 
 /* FEEDBACK DE COPIADO */
 .btn-copy{transition:background .3s ease,box-shadow .3s ease,transform .25s ease}
@@ -132,7 +138,14 @@ section{position:relative;z-index:1;padding:120px 0}
 .proj-lang{display:flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--text-low)}
 .swatch{width:9px;height:9px;border-radius:50%;background:var(--accent-solid);flex:0 0 auto}
 .proj-card h3{font-size:21px;margin-bottom:12px;font-weight:600}
-.proj-card p.desc{font-size:14.5px;color:var(--text-mid);margin-bottom:20px;line-height:1.65}
+.proj-card p.desc{font-size:14.5px;color:var(--text-mid);margin-bottom:16px;line-height:1.65}
+
+/* ESTRUTURA PROBLEMA -> SOLUÇÃO -> IMPACTO */
+.case-bullets{list-style:none;padding:0;margin:0 0 20px;display:flex;flex-direction:column;gap:8px;font-size:13.5px;line-height:1.55}
+.case-bullets li{position:relative;padding-left:18px;color:var(--text-mid)}
+.case-bullets li::before{content:"›";position:absolute;left:0;color:var(--cyan);font-weight:bold;font-size:16px;line-height:1.2}
+.case-bullets strong{color:var(--text-hi);font-weight:600}
+
 .proj-stack{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:22px}
 .proj-stack span{font-family:'JetBrains Mono',monospace;font-size:11px;padding:5px 10px;border-radius:6px;background:rgba(255,255,255,.025);color:var(--text-mid);border:1px solid var(--line)}
 .proj-link{display:inline-flex;align-items:center;gap:7px;font-size:13.5px;font-weight:600;color:var(--text-hi);border-bottom:1px solid var(--line-strong);padding-bottom:2px;transition:border-color .25s ease,color .25s ease,gap .25s ease}
@@ -170,10 +183,10 @@ footer{padding:48px 0 40px}
 .footer-social a:hover{color:var(--blue-bright)}
 
 @media(max-width:900px){
-  .nav-links{display:none}.nav-toggle{display:block}.about-layout{grid-template-columns:1fr;gap:40px}.projects-grid{grid-template-columns:1fr}.contact-card{padding:44px 24px}.stage-item{grid-template-columns:40px 1fr;gap:18px}.lang-row{grid-template-columns:1fr 1fr}
+  .nav-links{display:none}.nav-toggle{display:block}.about-layout{grid-template-columns:1fr;gap:40px}.projects-grid{grid-template-columns:1fr}.contact-card{padding:44px 24px}.stage-item{grid-template-columns:40px 1fr;gap:18px}.lang-row{grid-template-columns:1fr 1fr}.hero-stats{gap:22px}
 }
 @media(max-width:600px){
-  .wrap{padding:0 20px}section{padding:90px 0}.hero{padding:150px 0 95px}.hero-actions{flex-direction:column;align-items:stretch}.contact-actions{flex-direction:column;align-items:stretch}.contact-meta{flex-direction:column;align-items:center;gap:14px}.footer-bottom{flex-direction:column;text-align:center}.lang-row{grid-template-columns:1fr}
+  .wrap{padding:0 20px}section{padding:90px 0}.hero{padding:150px 0 95px}.hero-actions{flex-direction:column;align-items:stretch}.contact-actions{flex-direction:column;align-items:stretch}.contact-meta{flex-direction:column;align-items:center;gap:14px}.footer-bottom{flex-direction:column;text-align:center}.lang-row{grid-template-columns:1fr}.hero-stats{flex-direction:column;gap:18px}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{transition:none;opacity:1;transform:none}.btn,.proj-card{transition:none}}
 </style>
@@ -212,6 +225,22 @@ footer{padding:48px 0 40px}
           <a href="#projetos" class="btn btn-primary">Ver Projetos →</a>
           <a href="https://www.linkedin.com/in/fabmendes/" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn</a>
           <a href="https://github.com/MendesFabricio" target="_blank" rel="noopener" class="btn btn-ghost">GitHub</a>
+        </div>
+
+        <!-- MÉTRICAS DE IMPACTO (ITEM 1) -->
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="num">UFABC</span>
+            <span class="label">Eng. Instrumentação & Robótica</span>
+          </div>
+          <div class="stat">
+            <span class="num">+2 Anos</span>
+            <span class="label">Vivência em Dados & Automação</span>
+          </div>
+          <div class="stat">
+            <span class="num">Multidisciplinar</span>
+            <span class="label">Engenharia, Processos & BI</span>
+          </div>
         </div>
       </div>
     </div>
@@ -267,37 +296,62 @@ footer{padding:48px 0 40px}
     </div>
   </section>
 
-  <!-- PROJETOS -->
+  <!-- PROJETOS (ITEM 3 ESTRUTURADO) -->
   <section id="projetos">
     <div class="wrap">
-      <div class="section-head reveal"><span class="eyebrow">Projetos & cases</span><h2>Dados e automação aplicados na prática</h2><p>Soluções e experiências práticas organizadas pelo problema resolvido, tecnologia utilizada e impacto no negócio.</p></div>
+      <div class="section-head reveal"><span class="eyebrow">Projetos & cases</span><h2>Dados e automação aplicados na prática</h2><p>Soluções estruturadas pelo problema de negócio resolvido, arquitetura técnica e impacto operacional.</p></div>
       <div class="projects-grid">
+        
+        <!-- PROJETO 1: ASSETFLOW -->
         <article class="proj-card p-asset reveal">
           <div class="proj-top"><div class="proj-lang"><span class="swatch"></span>Python · Next.js · Analytics</div></div>
           <h3>AssetFlow Pro</h3>
           <p class="desc">Plataforma para consolidação de investimentos, análise quantitativa de risco e apoio ao rebalanceamento de carteiras, unindo engenharia de software e análise de dados em tempo real.</p>
+          <ul class="case-bullets">
+            <li><strong>Desafio:</strong> Centralizar ativos de fontes distintas e aplicar métricas de risco automatizadas.</li>
+            <li><strong>Solução:</strong> Backend em Python/Flask para cálculo quantitativo e interface web reativa em Next.js.</li>
+            <li><strong>Impacto:</strong> Visão consolidada e rebalanceamento inteligente de ativos em segundos.</li>
+          </ul>
           <div class="proj-stack"><span>Python</span><span>Next.js</span><span>Flask</span><span>Data Analytics</span></div>
           <a href="https://github.com/MendesFabricio/asset-flow" target="_blank" rel="noopener" class="proj-link">Ver repositório no GitHub ↗</a>
         </article>
 
+        <!-- PROJETO 2: POWER BI -->
         <article class="proj-card p-bi reveal">
           <div class="proj-top"><div class="proj-lang"><span class="swatch"></span>Power BI · Power Query</div><span class="proj-note">Thermo Fisher Scientific<br>Case profissional</span></div>
           <h3>Dashboards & KPIs Operacionais</h3>
-          <p class="desc">Construção de dashboards desde o tratamento e modelagem dos dados até a definição de indicadores e visualizações para acompanhamento de KPIs em Supply Chain & PMO.</p>
+          <p class="desc">Desenvolvimento end-to-end de soluções em Business Intelligence para acompanhamento executivo e operacional em Supply Chain & PMO.</p>
+          <ul class="case-bullets">
+            <li><strong>Desafio:</strong> Múltiplas fontes de dados dispersas com baixa padronização para acompanhamento de KPIs.</li>
+            <li><strong>Solução:</strong> Pipeline no Power Query, modelagem dimensional (Star Schema) e medidas em DAX.</li>
+            <li><strong>Impacto:</strong> Relatórios automatizados em tempo real e maior assertividade na tomada de decisão.</li>
+          </ul>
           <div class="proj-stack"><span>Power BI</span><span>Power Query</span><span>DAX</span><span>Excel</span><span>KPIs</span></div>
         </article>
 
+        <!-- PROJETO 3: POWER PLATFORM -->
         <article class="proj-card p-platform reveal">
           <div class="proj-top"><div class="proj-lang"><span class="swatch"></span>Power Apps · Power Automate</div><span class="proj-note">Thermo Fisher Scientific<br>Case profissional</span></div>
           <h3>Digitalização & Automação de Rotinas</h3>
-          <p class="desc">Desenvolvimento de soluções com Power Apps e fluxos no Power Automate para eliminar atividades manuais repetitivas, padronizar rotinas e aumentar a escalabilidade do time.</p>
+          <p class="desc">Modernização de processos operacionais através do ecossistema Microsoft Power Platform.</p>
+          <ul class="case-bullets">
+            <li><strong>Desafio:</strong> Atividades manuais repetitivas e formulários descentralizados com risco de inconsistência.</li>
+            <li><strong>Solução:</strong> Aplicativos no Power Apps integrados a fluxos automatizados com Power Automate.</li>
+            <li><strong>Impacto:</strong> Eliminação de retrabalho manual, padronização e maior agilidade nas entregas.</li>
+          </ul>
           <div class="proj-stack"><span>Power Apps</span><span>Power Automate</span><span>Microsoft 365</span><span>Processos</span></div>
         </article>
 
+        <!-- PROJETO 4: RPA & AUDITORIA -->
         <article class="proj-card p-rpa reveal">
           <div class="proj-top"><div class="proj-lang"><span class="swatch"></span>RPA · Qualidade de Dados</div><span class="proj-note">Thermo Fisher Scientific<br>Case profissional</span></div>
           <h3>Auditoria de RPA & Data Quality</h3>
-          <p class="desc">Auditoria contínua de rotinas automatizadas e validação de bases de dados com foco em assegurar acurácia das informações, eficiência operacional e identificação de melhorias.</p>
+          <p class="desc">Auditoria contínua de rotinas automatizadas e validação de integridade de bases de dados.</p>
+          <ul class="case-bullets">
+            <li><strong>Desafio:</strong> Garantir que automações robóticas (RPA) operassem sem desvios de dados.</li>
+            <li><strong>Solução:</strong> Rotinas de auditoria, cruzamento de bases e identificação de gargalos de processo.</li>
+            <li><strong>Impacto:</strong> Alta acurácia nas bases corporativas e resolução proativa de falhas.</li>
+          </ul>
           <div class="proj-stack"><span>RPA</span><span>Data Quality</span><span>Auditoria</span><span>Melhoria Contínua</span></div>
         </article>
       </div>
@@ -326,7 +380,6 @@ footer{padding:48px 0 40px}
         <p>Aberto a novas oportunidades, conexões e projetos envolvendo análise de dados, BI, Power Platform e automação de processos.</p>
         
         <div class="contact-actions">
-          <!-- Botão que copia o e-mail -->
           <button type="button" class="btn btn-primary btn-copy" onclick="copyEmail(this, 'fmendess520@gmail.com')">
             <span class="copy-icon">✉</span> <span class="copy-text">fmendess520@gmail.com</span>
           </button>
